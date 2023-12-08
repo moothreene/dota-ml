@@ -1,0 +1,19 @@
+.header{
+    margin:0;
+    height: 10vh;
+    background-color: red;
+}
+
+p{
+    margin: 0;
+}
+
+ul{
+    position: relative;
+    left:50%;
+    margin: 0;
+    display:flex;
+}
+li{
+    margin: 0 1em 0 1em;
+}

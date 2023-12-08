@@ -1,0 +1,121 @@
+.heroes-container{
+    background-color: rgb(44, 3, 0);
+    width:90%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.heroes-selected{
+    box-sizing: inherit;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.heroes_pool{
+    display:flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: 2em;
+    justify-content: space-between;
+}
+
+.button-container{
+    box-sizing: inherit;
+    display: block;
+    width: 25%;
+    margin: auto;
+    height: auto;
+}
+
+.button-container button{
+    background-color: rgb(134, 29, 29);
+    width: 100%;
+    height: auto;
+    box-sizing: inherit;
+    margin-top: 2em;
+    padding: 0;
+}
+
+.button-container button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 2px black;
+}
+
+.button-container button p{
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2em;
+}
+
+.button-container p{
+    text-align: center;
+}
+
+.divider{
+    margin: 0 .5em;
+    font-size: 3em;
+    color:rgba(131, 10, 10, 0.49);
+}
+
+.team-buttons{
+    box-sizing: inherit;
+    width: 100%;
+    display: flex;
+}
+
+.team-button{
+    align-items: center;
+    box-sizing: inherit;
+    width: 50%;
+    display: flex;
+}
+
+.team-button button{
+    margin: auto;
+    font-size: 3em;
+}
+
+.active{
+    pointer-events: none;
+    opacity: 50%;
+}
+
+.winrate-container{
+    display:flex;
+    width: 60%;
+    margin: auto;
+}
+
+.bar {
+    margin: 2em 0 1em 0;
+    visibility: visible;
+    height: .3em;
+}
+
+.bar.radiant {
+background-color: green;
+}
+
+.bar.dire {
+background-color: red;
+}
+.winrate-number{
+    visibility: visible;
+    text-align: center;
+    width: 25%;
+    margin: auto;
+    font-size: 1em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:white;
+}
+
+.uncalculated{
+    visibility: hidden;
+    opacity: 0;
+}
