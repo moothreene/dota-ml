@@ -1,5 +1,6 @@
 html{
   background-color: rgb(44, 3 ,0);
+  overflow-x: clip;
 }
 
 body{

@@ -6,6 +6,7 @@
 }
 
 .heroes-selected{
+    padding-top: 1em;
     box-sizing: inherit;
     width: 100%;
     display: flex;
@@ -19,10 +20,12 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     margin: 2em;
-    justify-content: space-between;
+    justify-content: start;
 }
 
 .button-container{
+    position: relative;
+    z-index: 3;
     box-sizing: inherit;
     display: block;
     width: 25%;
@@ -64,12 +67,15 @@
 }
 
 .team-buttons{
-    box-sizing: inherit;
-    width: 100%;
+    position: absolute;
+    box-sizing: content-box;
+    width: 90%;
     display: flex;
 }
 
 .team-button{
+    opacity: 50%;
+    z-index: 1;
     align-items: center;
     box-sizing: inherit;
     width: 50%;
@@ -77,16 +83,21 @@
 }
 
 .team-button button{
+    border: none;
+    width: 100%;
+    height: 5.6em;
     margin: auto;
     font-size: 3em;
 }
 
 .active{
     pointer-events: none;
-    opacity: 50%;
+    opacity: 10%;
 }
 
 .winrate-container{
+    position: relative;
+    z-index: 3;
     display:flex;
     width: 60%;
     margin: auto;
@@ -106,13 +117,15 @@ background-color: green;
 background-color: red;
 }
 .winrate-number{
+    position: relative;
+    z-index: 3;
     visibility: visible;
     text-align: center;
     width: 25%;
     margin: auto;
     font-size: 1em;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color:white;
+    color:black;
 }
 
 .uncalculated{

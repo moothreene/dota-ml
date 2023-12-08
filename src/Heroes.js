@@ -15,34 +15,44 @@ export default function Heroes(){
         legs: 0,
         img:"No_Hero.png"
     }
+    let [teamActive, setTeamActive] = useState("radiant");
     let [heroesRadiant, setHeroesRadiant] = useState([]);
     let [heroesDire, setHeroesDire] = useState([]);
     let [predictionValue, setPredictionValue] = useState(".5");
     let [winrateState, setWinrateState] = useState("uncalculated");
+
     useEffect(()=>{
         document.getElementById("radiantBar").style.width = 60*+predictionValue+"em";
         document.getElementById("direBar").style.width = 60*(1-+predictionValue)+"em";
     },[predictionValue]);
 
+    useEffect(()=>{
+        let team_buttons = document.getElementsByClassName("team-button");
+        for(let button of team_buttons){
+            button.classList.toggle("active");
+        }
+    },[teamActive]);
+
     function handleClick(hero){
         if(hero!=hero_empty){
+            let hero_team = heroesRadiant.includes(hero)?"radiant":heroesDire.includes(hero)?"dire":null;
             let radiant_copy = [...heroesRadiant];
             let dire_copy = [...heroesDire];
             let toggle = true;
-            let team_active = document.getElementsByClassName("active")[0].classList.contains("radiant")?"radiant":"dire";
-            console.log(team_active);
-            if (heroesRadiant.includes(hero)){
+            if (hero_team=="radiant"){
                 radiant_copy.splice(radiant_copy.indexOf(hero),1);
             }
-            else if (heroesDire.includes(hero)){
+            else if (hero_team=="dire"){
                 dire_copy.splice(dire_copy.indexOf(hero),1);
             }
             else{
-                if(team_active === "radiant"&&heroesRadiant.length < 5){
+                if(teamActive === "radiant"&&heroesRadiant.length < 5){
                     radiant_copy.push(hero);
+                    hero_team = "radiant";
                 }
-                else if(team_active==="dire"&&heroesDire.length < 5){
+                else if(teamActive==="dire"&&heroesDire.length < 5){
                     dire_copy.push(hero)
+                    hero_team = "dire";
                 }
                 else{
                     toggle = false;
@@ -51,9 +61,8 @@ export default function Heroes(){
             if(toggle==true){
                 let selected = document.getElementsByClassName("id_"+hero.id);
                 for(let element of selected){
-                        console.log(team_active);
                         element.classList.toggle("selected");
-                        element.classList.toggle(team_active);
+                        element.classList.toggle(hero_team);
             }
              
             setHeroesRadiant(radiant_copy);
@@ -64,10 +73,7 @@ export default function Heroes(){
     }
 
     function handleClickTeam(){
-        let teams = document.getElementsByClassName("team-button");
-        for(let team of teams){
-            team.classList.toggle("active");
-        }
+        teamActive=="radiant"?setTeamActive("dire"):setTeamActive("radiant");
     }
 
     async function handleSubmit(data){

@@ -1,6 +1,8 @@
 .hero-button{
+    background-color: transparent;
     display: inline-flex;
     position: relative;
+    z-index: 3;
     margin: .2em;
     padding: 0;
     border: none;
@@ -32,6 +34,9 @@
 
 .hero-button.selected{
     pointer-events: none;
+}
+
+.hero-button.selected :nth-child(1){
     opacity: 30%;
 }
 
@@ -42,6 +47,7 @@
 .hero-button.dire{
     border:3px solid red;
 }
+
 .hero-button.hero-button.selected p{
     display: none;
 }
