@@ -2,7 +2,10 @@ import './Header.css'
 export default function Header(){
     return(
         <div class="header">
-            <p>Dota pick prediction</p>
+            <div class="logo">
+                <img src={require(`./images/logo.png`)}></img>
+                <p>Dota pick prediction</p>
+            </div>
             <ul>
                 <li>Link placeholder</li>
                 <li>Link placeholder</li>

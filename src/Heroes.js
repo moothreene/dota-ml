@@ -15,11 +15,14 @@ export default function Heroes(){
         legs: 0,
         img:"No_Hero.png"
     }
+
     let [teamActive, setTeamActive] = useState("radiant");
     let [heroesRadiant, setHeroesRadiant] = useState([]);
     let [heroesDire, setHeroesDire] = useState([]);
     let [predictionValue, setPredictionValue] = useState(".5");
     let [winrateState, setWinrateState] = useState("uncalculated");
+    let [buttonActive, setButtonActive] = useState("hidden");
+
 
     useEffect(()=>{
         document.getElementById("radiantBar").style.width = 60*+predictionValue+"em";
@@ -32,6 +35,16 @@ export default function Heroes(){
             button.classList.toggle("active");
         }
     },[teamActive]);
+
+    useEffect(()=>{
+        if(heroesDire.length === 5 && heroesRadiant.length === 5 && buttonActive==="hidden"){
+            setButtonActive("visible");
+        }
+        else if((heroesDire.length < 5 || heroesRadiant.length) && buttonActive){
+            setButtonActive("hidden");
+            setWinrateState("uncalculated")
+        }
+    },[heroesDire,heroesRadiant]);
 
     function handleClick(hero){
         if(hero!=hero_empty){
@@ -101,16 +114,15 @@ export default function Heroes(){
 
     return(
         <div class="heroes-container">
-            <div class="team-buttons">
-                <div class="team-button radiant active">
-                    <button onClick={handleClickTeam}>Radiant</button>
-                </div>
-                <div class="team-button dire">
-                    <button onClick={handleClickTeam}>Dire</button>
-                </div>
-            </div>
             <div class="heroes-selected">
-
+                <div class="team-buttons">
+                    <div class="team-button radiant active">
+                        <button onClick={handleClickTeam}></button>
+                    </div>
+                    <div class="team-button dire">
+                        <button onClick={handleClickTeam}></button>
+                    </div>
+                </div>
                 {heroesRadiant.map(hero=>{
                     return(
                         <HeroButton hero={hero} handleClick={handleClick}></HeroButton>
@@ -121,8 +133,6 @@ export default function Heroes(){
                     <HeroButton hero={hero_empty} handleClick={handleClick}></HeroButton>
                     )
                 })}
-
-                <div class="divider">|</div>
                 
                 {heroesDire.map(hero=>{
                     return(
@@ -136,14 +146,17 @@ export default function Heroes(){
                 })}
 
             </div>
-            <div class="button-container">
+
+            <div class={`winrate-container `+winrateState}>
+                <div class="bars">
+                    <div class="radiant bar" id="radiantBar"></div>
+                    <div class="dire bar" id="direBar"></div>
+                </div>
+                <p class={`winrate-number `+winrateState}>{predictionValue*100+"%"}</p>
+            </div>
+            <div class={`button-container `+buttonActive}>
                 <button onClick={()=>handleSubmit(heroesRadiant.concat(heroesDire).map((hero)=>hero.name))}><p>Submit</p></button>
             </div>
-            <div class="winrate-container">
-                <div class={`radiant bar `+winrateState} id="radiantBar"></div>
-                <div class={`dire bar `+winrateState} id="direBar"></div>
-            </div>
-            <p class={`winrate-number `+winrateState}>{predictionValue}</p>
             <div class="heroes_pool">
                 {heroes_data.map(hero=>{
                     return(
