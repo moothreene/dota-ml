@@ -90,6 +90,7 @@
 .team-buttons{
     width: inherit;
     height: inherit;
+    top:inherit;
     position: fixed;
     z-index: 2;
     box-sizing: border-box;
