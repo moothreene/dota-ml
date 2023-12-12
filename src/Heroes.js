@@ -92,7 +92,7 @@ export default function Heroes(){
     async function handleSubmit(data){
         if (data){
             try{
-                const response = await fetch('http://127.0.0.1:5000/get-pred/'+"1500,1500,"+data,{
+                const response = await fetch('https://dota-ml-api-5e0ee14ed4c7.herokuapp.com/get-pred/'+"1500,1500,"+data,{
                 mode:"cors",
                 method:'GET',
                 headers:{
