@@ -14,7 +14,7 @@
     z-index: 4;
     box-sizing: inherit;
     width: 90%;
-    height: 15vh;
+    height: auto;
     display: flex;
     align-items: stretch;
     justify-content:space-evenly;
@@ -44,7 +44,7 @@
     z-index: 3;
     box-sizing: inherit;
     display: block;
-    width: 25%;
+    width: fit-content;
     margin: auto;
     height: auto;
 }
@@ -86,10 +86,9 @@
 }
 
 .team-buttons{
-    width: inherit;
-    height: inherit;
-    top:inherit;
-    position: fixed;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     z-index: 2;
     box-sizing: border-box;
     display: flex;
@@ -165,4 +164,28 @@ background-color: red;
     z-index: -2;
     visibility: hidden;
     opacity: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .hero-button img{
+        width:7em;
+    }
+    .hero-button{
+        margin: .1em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hero-button img{
+        width:5em;
+    }
+    .hero-button{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hero-button img{
+        width:3em;
+    }
 }
