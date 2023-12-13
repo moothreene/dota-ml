@@ -80,6 +80,15 @@ export default function Heroes(){
              
             setHeroesRadiant(radiant_copy);
             setHeroesDire(dire_copy);
+            if(teamActive==="radiant" && radiant_copy.length === 5){
+                if(dire_copy.length < 5){
+                    setTeamActive("dire");
+                }
+            }else if(teamActive==="dire" && dire_copy.length === 5){
+                if(radiant_copy.length < 5){
+                    setTeamActive("radiant");
+                }
+            }
             }
         
         }
@@ -147,15 +156,17 @@ export default function Heroes(){
 
             </div>
 
-            <div class={`winrate-container `+winrateState}>
-                <div class="bars">
-                    <div class="radiant bar" id="radiantBar"></div>
-                    <div class="dire bar" id="direBar"></div>
+            <div class="submit-container">
+                <div class={`button-container `+buttonActive}>
+                    <button onClick={()=>handleSubmit(heroesRadiant.concat(heroesDire).map((hero)=>hero.name))}><p>Submit</p></button>
                 </div>
-                <p class={`winrate-number `+winrateState}>{predictionValue*100+"%"}</p>
-            </div>
-            <div class={`button-container `+buttonActive}>
-                <button onClick={()=>handleSubmit(heroesRadiant.concat(heroesDire).map((hero)=>hero.name))}><p>Submit</p></button>
+                <div class={`winrate-container `+winrateState}>
+                    <div class="bars">
+                        <div class="radiant bar" id="radiantBar"></div>
+                        <div class="dire bar" id="direBar"></div>
+                    </div>
+                    <p class={`winrate-number `+winrateState}>{predictionValue*100+"%"}</p>
+                </div>
             </div>
             <div class="heroes_pool">
                 {heroes_data.map(hero=>{
