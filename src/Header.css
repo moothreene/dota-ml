@@ -1,6 +1,7 @@
 .header{
+    box-sizing: border-box;
     margin:0;
-    height: auto;
+    height: fit-content;
     background-color: red;
     border-bottom: solid 4px black;
 }
@@ -17,7 +18,8 @@ li{
 }
 
 .logo{
-    position: relative;
+    box-sizing: inherit;
+    padding: .5em;
     top:.5em;
     left: .5em;
     display: flex;

@@ -6,12 +6,13 @@ export default function Header(){
                 <img src={require(`./images/logo.png`)}></img>
                 <p>Dota pick prediction</p>
             </div>
-            <ul>
-                <li>Link placeholder</li>
-                <li>Link placeholder</li>
-                <li>Link placeholder</li>
-                <li>Link placeholder</li>
-            </ul>
+            {//<ul>
+                //<li>Link placeholder</li>
+                //<li>Link placeholder</li>
+                //<li>Link placeholder</li>
+                //<li>Link placeholder</li>
+            //</div></ul>
+        }
         </div>
     )
 }
