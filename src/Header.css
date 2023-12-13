@@ -10,6 +10,7 @@ ul{
     left:50%;
     margin: 0;
     display:flex;
+    width: fit-content;
 }
 li{
     margin: 0 1em 0 1em;
@@ -20,6 +21,7 @@ li{
     top:.5em;
     left: .5em;
     display: flex;
+    width: fit-content;
 }
 
 .logo img{
