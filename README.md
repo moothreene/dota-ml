@@ -1,10 +1,6 @@
 My React.js project which includes connection to my other project (dota machine learning match outcome predictor)
 
-# How to use:
-1. Run main.py from https://github.com/moothreene/dota-ml-predict  -
-   This setups the api for sending requests with dota picks and getting responses with a win probability
-   
-2. Run "npm start" command in cmd from dota-ml js project directory
+# GO TO  https://dota-ml-app-73c43ecc7945.herokuapp.com/ TO SEE HOW IT WORKS
 
 # IMPORTANT
 
