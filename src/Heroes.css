@@ -193,8 +193,12 @@ background-color: red;
         display: inline;
     }
 
+    .hero-button img{
+        width: 4em;
+    }
+
     .team-selected .hero-button img{
-        width:5em;
+        width:4em;
     }
 
     .hero-button{
