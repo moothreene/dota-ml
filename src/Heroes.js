@@ -132,27 +132,31 @@ export default function Heroes(){
                         <button onClick={handleClickTeam}></button>
                     </div>
                 </div>
-                {heroesRadiant.map(hero=>{
-                    return(
-                        <HeroButton hero={hero} handleClick={handleClick}></HeroButton>
-                    )
-                })}
-                {Array.from(Array(5-heroesRadiant.length)).map(()=>{
-                    return(
-                    <HeroButton hero={hero_empty} handleClick={handleClick}></HeroButton>
-                    )
-                })}
+                <div class="team-selected radiant">
+                    {heroesRadiant.map(hero=>{
+                        return(
+                            <HeroButton hero={hero} handleClick={handleClick}></HeroButton>
+                        )
+                    })}
+                    {Array.from(Array(5-heroesRadiant.length)).map(()=>{
+                        return(
+                        <HeroButton hero={hero_empty} handleClick={handleClick}></HeroButton>
+                        )
+                    })}
+                </div>
+                <div class="team-selected dire">
+                    {heroesDire.map(hero=>{
+                        return(
+                            <HeroButton hero={hero} handleClick={handleClick}></HeroButton>
+                        )
+                    })}
+                    {Array.from(Array(5-heroesDire.length)).map(()=>{
+                        return(
+                        <HeroButton hero={hero_empty} handleClick={handleClick}></HeroButton>
+                        )
+                    })}
+                </div>
                 
-                {heroesDire.map(hero=>{
-                    return(
-                        <HeroButton hero={hero} handleClick={handleClick}></HeroButton>
-                    )
-                })}
-                {Array.from(Array(5-heroesDire.length)).map(()=>{
-                    return(
-                    <HeroButton hero={hero_empty} handleClick={handleClick}></HeroButton>
-                    )
-                })}
 
             </div>
 
