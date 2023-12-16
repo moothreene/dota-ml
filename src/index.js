@@ -5,6 +5,19 @@ import Heroes from './Heroes';
 import Header from './Header';
 import reportWebVitals from './reportWebVitals';
 
+
+if (document.title != "Dota Pick Predictor") {
+  document.title = "Dota Pick Predictor";
+}
+function setFavicons(favImg){
+  let headTitle = document.querySelector('head');
+  let setFavicon = document.createElement('link');
+  setFavicon.setAttribute('rel','shortcut icon');
+  setFavicon.setAttribute('href',favImg);
+  headTitle.appendChild(setFavicon);
+}
+setFavicons(require(`./images/logo.png`));
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
