@@ -38,12 +38,12 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     margin: 2em;
-    justify-content: start;
+    justify-content: space-between;
 }
 
 .submit-container{
     position: relative;
-    top:20vh;
+    top:7em;
 }
 
 .button-container{
